@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BoatDTO {
-    private long boatId;
+    private Long boatId;
     private String boatName;
     private int passengerCapacity;
     private double baseHourlyRate;

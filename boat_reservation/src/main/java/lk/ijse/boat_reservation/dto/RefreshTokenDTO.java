@@ -10,8 +10,8 @@ import java.time.Instant;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RefreshTokenDTO {
-    private long id;
+    private Long id;
     private String token;
     private Instant expiryDate;
-    private long userId;
+    private Long userId;
 }

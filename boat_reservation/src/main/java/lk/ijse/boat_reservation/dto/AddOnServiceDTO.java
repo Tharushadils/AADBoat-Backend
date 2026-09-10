@@ -1,3 +1,4 @@
+
 package lk.ijse.boat_reservation.dto;
 
 import lombok.AllArgsConstructor;
@@ -8,8 +9,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddOnServiceDTO {
-    private long serviceId;
+    private Long serviceId;
     private String serviceName;
-    private double price;
+    private Double price;
     private String description;
+    private String status;
+
+    public AddOnServiceDTO(Long serviceId, String serviceName, Double price) {
+        this.serviceId = serviceId;
+        this.serviceName = serviceName;
+        this.price = price;
+    }
 }

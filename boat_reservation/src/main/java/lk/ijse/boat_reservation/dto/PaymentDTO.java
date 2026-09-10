@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PaymentDTO {
-    private long paymentId;
+    private Long paymentId;
     private String transactionId;
     private double amountPaid;
     private LocalDateTime paymentDate;

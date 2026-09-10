@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReviewDTO {
-    private long reviewId;
+    private Long reviewId;
     private int ratingStars;
     private String comment;
     private LocalDate reviewDate;

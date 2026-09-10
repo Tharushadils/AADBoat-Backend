@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DockDTO {
-    private long dockId;
+    private Long dockId;
     private String dockName;
     private String locationAddress;
     private int maxCapacity;

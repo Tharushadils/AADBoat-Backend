@@ -10,8 +10,9 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MaintenanceLogDTO {
-    private long logId;
-    private LocalDate serviceDate;
+    private Long logId;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private String description;
     private double cost;
     private String status;

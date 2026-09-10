@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReservationItemDTO {
-    private long id;
+    private Long id;
     private int quantity;
     private double unitPrice;
     private Long addOnServiceId;
