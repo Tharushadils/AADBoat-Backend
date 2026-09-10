@@ -4,7 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.time.LocalDateTime;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -13,40 +14,45 @@ import java.util.List;
 @Entity
 @Table(name = "reservations")
 public class Reservation {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long reservationId;
-
-    @Column(nullable = false, unique = true)
-    private String reservationCode;
+    private Long reservationId;
 
     @Column(nullable = false)
-    private LocalDateTime startTime;
-
-    @Column(nullable = false)
-    private LocalDateTime endTime;
-
-    @Column(nullable = false)
-    private double totalPrice;
+    private LocalDate reservationDate;
 
     @Column(nullable = false)
     private String status;
 
+    @Column(nullable = false)
+    private int noOfSeats;
+
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "boat_id")
     private Boat boat;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Route route;
+    @JoinColumn(name = "slot_id")
+    private Slot slot;
 
-    @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL)
-    private List<ReservationItem> reservationItems;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "start_dock_id")
+    private Dock startDock;
 
-    @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL)
-    private Payment payment;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "end_dock_id")
+    private Dock endDock;
 
-    @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL)
-    private Invoice invoice;
+    @ManyToMany
+    @JoinTable(
+            name = "reservation_add_ons",
+            joinColumns = @JoinColumn(name = "reservation_id"),
+            inverseJoinColumns = @JoinColumn(name = "service_id")
+    )
+    private List<AddOnService> addOnServices;
 }

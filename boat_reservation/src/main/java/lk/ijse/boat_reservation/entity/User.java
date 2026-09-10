@@ -2,11 +2,15 @@ package lk.ijse.boat_reservation.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lk.ijse.boat_reservation.enumeration.UserRole;
+
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -16,7 +20,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long userId;
 
-    @Column(nullable = false, unique = true)//@Column -- use for extra configuration like null = false
+    @Column(nullable = false, unique = true)
     private String username;
 
     @Column(nullable = false)
@@ -31,8 +35,9 @@ public class User {
     @Column(nullable = false)
     private String contactNumber;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<UserRole> userRoles;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private UserRole role = UserRole.CUSTOMER; // Default
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Reservation> reservations;

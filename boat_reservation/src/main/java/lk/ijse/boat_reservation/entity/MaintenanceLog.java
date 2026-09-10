@@ -1,3 +1,4 @@
+
 package lk.ijse.boat_reservation.entity;
 
 import jakarta.persistence.*;
@@ -17,7 +18,9 @@ public class MaintenanceLog {
     private long logId;
 
     @Column(nullable = false)
-    private LocalDate serviceDate;
+    private LocalDate startDate;
+
+    private LocalDate endDate;
 
     private String description;
 
@@ -25,7 +28,7 @@ public class MaintenanceLog {
     private double cost;
 
     @Column(nullable = false)
-    private String status;//pending,inprogress,completed,cancel
+    private String status; // pending, inprogress, completed, cancel
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Boat boat;

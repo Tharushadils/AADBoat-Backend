@@ -25,8 +25,10 @@ public class Payment {
     @Column(nullable = false)
     private LocalDateTime paymentDate;
 
+
     @Column(nullable = false)
     private String paymentMethod;
+
 
     @Column(nullable = false)
     private String paymentStatus;

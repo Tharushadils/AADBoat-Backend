@@ -10,14 +10,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "boat_categories")
-public class BoatCategory {
+@Table(name = "boat_categories")//naming tha table
+public class  BoatCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long categoryId;
+    private Long categoryId;
 
     @Column(nullable = false, unique = true)
-    private String categoryName; // e.g., Speedboat, Yacht, Catamaran ,Kayak
+    private String categoryName; // e.g.(veritees) Speedboat, Yacht, Catamaran ,Kayak
 
     private String description;
 

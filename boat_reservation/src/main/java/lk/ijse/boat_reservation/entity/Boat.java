@@ -25,6 +25,7 @@ public class Boat {
     @Column(nullable = false)
     private double baseHourlyRate;
 
+
     @Column(nullable = false)
     private String status;
 
